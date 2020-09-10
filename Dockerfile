@@ -29,4 +29,4 @@ COPY . /app
 # CMD pm2-runtime server.js
 CMD node index.js
 
-EXPOSE 9999
+# EXPOSE 9999

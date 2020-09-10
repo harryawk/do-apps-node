@@ -58,7 +58,7 @@ const upload = multer({
 
 const authMiddleware = require('./middlewares/auth');
 
-const port = process.env.APP_PORT || 9999;
+const port = process.env.APP_PORT || process.env.PORT || 9999;
 
 const {
   getAllLocation,
@@ -94,6 +94,12 @@ app.get('/location/detail/:location_id', getDetailLocation);
 app.post('/location', addLocation);
 app.put('/location/:location_id', updateLocation);
 app.delete('/location/:location_id', deleteLocation);
+
+let { sendResponse } = require('./helpers/response');
+
+app.get('/ping', async (req, res) => {
+  sendResponse(res, true, 'Server is up and running.');
+});
 
 app.listen(port, function() {
   console.log(`App listen on port : ${port}`);
