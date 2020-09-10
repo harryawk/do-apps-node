@@ -1,6 +1,6 @@
 let { uploadFileToDO, uploadFileToLocal } = require('../../helpers/utils');
 
-const generateLocationObject = async (requestObject, generatedLocationID) => {
+const generateLocation = async (requestObject, generatedLocationID) => {
   let reqBody = requestObject.body;
 
   return {
@@ -11,5 +11,5 @@ const generateLocationObject = async (requestObject, generatedLocationID) => {
 };
 
 module.exports = {
-  generateLocationObject,
+  generateLocation,
 };
